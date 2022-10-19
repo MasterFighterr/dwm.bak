@@ -14,20 +14,20 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=12" };
 static const char dmenufont[]       = "monospace:size=12";
-static const char col_gray1[]       = "#111111";
+static const char col_gray1[]       = "#9fbac5";
 //static const char col_gray2[]       = "#444444";
 //static const char col_gray3[]       = "#bbbbbb";
 //static const char col_gray4[]       = "#eeeeee";
 //static const char drk_gray[]        = "#222222";
-static const char green[]	    = "#00ff00";
-static const char drk_green[]	    = "#006600";
+static const char gray[]	    = "#7c98a6";
+static const char dark_gray[]	    = "#000d20";
 //static const char manga[]           = "#ececec";
 //static const char purple[]          = "#6e527e";
 //static const char red[]		    = "#ff0000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { green, col_gray1, col_gray1 },
-	[SchemeSel]  = { drk_green, green,     green    },
+	[SchemeNorm] = { dark_gray, col_gray1, col_gray1 },
+	[SchemeSel]  = { gray, dark_gray,     dark_gray    },
 };
 
 /* tagging */
@@ -70,7 +70,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", green, "-sb", green, "-sf", drk_green, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", dark_gray, "-sb", dark_gray, "-sf", gray, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *librewolf[] = { "librewolf", NULL };
 static const char *icecat[] = { "icecat", NULL};
@@ -80,15 +80,20 @@ static const char *filemancmd[] = { "pcmanfm", NULL };
 static const char *tutanota[] = { "tutanota-desktop", NULL };
 static const char *strawberry[] = { "strawberry", NULL };
 //volume controls
-static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
-static const char *downvol[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
-static const char *mutevol[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
+//static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
+//static const char *downvol[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
+//static const char *mutevol[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
+
+static const char *upvol[]   = { "amixer", "-q", "-D", "pulse", "set", "Master", "5%+", "unmute", NULL };
+static const char *downvol[] = { "amixer", "-q", "-D", "pulse", "set", "Master", "5%-", "unmute", NULL };
+static const char *mutevol[] = { "amixer", "-q", "-D", "pulse", "set", "Master", "toggle", NULL };
+
 //brightness controls
 //static const char *brightnessup[] = { "xbacklight", "-inc", "5", NULL};
 //static const char *brightnessdown[] = { "xbacklight", "-dec", "5", NULL };
 //keyboard controls
-//static const char *kbrightup[] = { "brightnessctl", "--device=asus::kbd_backlight", "s", "1+", };
-//static const char *kbrightdown[] = { "brightnessctl", "--device=asus::kbd_backlight", "s", "1-", };
+static const char *kbrightup[] = { "asusctl", "-n", NULL };
+static const char *kbrightdown[] = { "asusctl", "-p", NULL };
 static const char *aura[] = { "asusctl", "led-mode", "-n", NULL };
 static const char *fan[] = { "asusctl", "profile", "-n", NULL };
 //static const char *lxrandr[] = { "lxrandr", NULL };
@@ -141,8 +146,8 @@ static Key keys[] = {
 	{ 0,	     XF86XK_AudioRaiseVolume,	   spawn,          {.v = upvol } },
 	{ 0,	     XF86XK_AudioLowerVolume,      spawn,	   {.v = downvol } },
 	{ 0,                XF86XK_AudioMute,      spawn,	   {.v = mutevol } },
-//	{ 0,	      XF86XK_KbdBrightnessUp,	   spawn,	   {.v = kbrightup } },
-//	{ 0,	    XF86XK_KbdBrightnessDown,	   spawn,	   {.v = kbrightdown } },
+	{ 0,	      XF86XK_KbdBrightnessUp,	   spawn,	   {.v = kbrightup } },
+	{ 0,	    XF86XK_KbdBrightnessDown,	   spawn,	   {.v = kbrightdown } },
 //	{ 0,          XF86XK_MonBrightnessUp,	   spawn,	   {.v = brightnessup } },
 //	{ 0,	    XF86XK_MonBrightnessDown,	   spawn,	   {.v = brightnessdown } },
 	{ 0,                  XF86XK_Launch3,	   spawn,	   {.v = aura } },
