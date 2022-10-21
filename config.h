@@ -26,8 +26,8 @@ static const char dark_gray[]	    = "#000d20";
 //static const char red[]		    = "#ff0000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { dark_gray, col_gray1, col_gray1 },
-	[SchemeSel]  = { gray, dark_gray,     dark_gray    },
+	[SchemeNorm] = { dark_gray, col_gray1, dark_gray },
+	[SchemeSel]  = { gray, dark_gray,     col_gray1    },
 };
 
 /* tagging */
