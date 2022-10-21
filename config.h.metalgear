@@ -26,8 +26,8 @@ static const char dark_gray[]	    = "#000d20";
 //static const char red[]		    = "#ff0000";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { gray, col_gray1, col_gray1 },
-	[SchemeSel]  = { dark_gray, gray,     gray    },
+	[SchemeNorm] = { dark_gray, col_gray1, dark_gray },
+	[SchemeSel]  = { gray, dark_gray,     col_gray1    },
 };
 
 /* tagging */
@@ -70,7 +70,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", gray, "-sb", gray, "-sf", dark_gray, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", dark_gray, "-sb", dark_gray, "-sf", gray, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *librewolf[] = { "librewolf", NULL };
 static const char *icecat[] = { "icecat", NULL};
