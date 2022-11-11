@@ -84,9 +84,13 @@ static const char *strawberry[] = { "strawberry", NULL };
 //static const char *downvol[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
 //static const char *mutevol[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
 
-static const char *upvol[]   = { "amixer", "-q", "-D", "pulse", "set", "Master", "5%+", "unmute", NULL };
-static const char *downvol[] = { "amixer", "-q", "-D", "pulse", "set", "Master", "5%-", "unmute", NULL };
-static const char *mutevol[] = { "amixer", "-q", "-D", "pulse", "set", "Master", "toggle", NULL };
+//static const char *upvol[]   = { "amixer", "-q", "-D", "pulse", "set", "Master", "5%+", "unmute", NULL };
+//static const char *downvol[] = { "amixer", "-q", "-D", "pulse", "set", "Master", "5%-", "unmute", NULL };
+//static const char *mutevol[] = { "amixer", "-q", "-D", "pulse", "set", "Master", "toggle", NULL };
+
+static const char *upvol[]   = { "pulsemixer", "--change-volume", "+10", "--unmute", NULL };
+static const char *downvol[] = { "pulsemixer", "--change-volume", "-10", "--unmute", NULL };
+static const char *mutevol[] = { "pulsemixer", "--toggle-mute", NULL };
 
 //brightness controls
 //static const char *brightnessup[] = { "xbacklight", "-inc", "5", NULL};
