@@ -88,8 +88,8 @@ static const char *strawberry[] = { "strawberry", NULL };
 
 //This is for pulseaudio on Laptops
 
-static const char *upvol[]   = { "pulsemixer", "--change-volume", "+10", "--unmute", NULL };
-static const char *downvol[] = { "pulsemixer", "--change-volume", "-10", "--unmute", NULL };
+static const char *upvol[]   = { "pulsemixer", "--change-volume", "+5", "--unmute", NULL };
+static const char *downvol[] = { "pulsemixer", "--change-volume", "-5", "--unmute", NULL };
 static const char *mutevol[] = { "pulsemixer", "--toggle-mute", NULL };
 
 //keyboard controls
