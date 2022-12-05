@@ -35,6 +35,7 @@ static const Rule rules[] = {
 	{ "Gimp",                         NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox", 	                  NULL,       "Firefox Preferences",       1 << 8,       0,           -1 },
 	{ "nm-connection-editor",         NULL,       NULL,       ~0,           1,           -1 },
+	[ "Steam",			  NULL,	      "Friends List",		   0,		1,		-1 },
 };
 
 /* layout(s) */
